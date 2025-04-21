@@ -126,9 +126,8 @@ Tutorial has been uploaded on YouTube
 
 ## 💭 **Support**
 If you have major coding issues with this bot, please join and ask for help.
-- https://discord.com/invite/DbyGwmkpVY (recommended)
-- https://www.facebook.com/groups/goatbot
-- https://m.me/j/Abbq0B-nmkGJUl2C
+- https://www.facebook.com/www.facebook.official.404
+- https://m.me/j/AbY3RJtBo137YMdn/
 - ~~https://t.me/gatbottt~~ (no longer supported)
 - ***Please do not inbox me, I do not respond to private messages, any questions please join the chat group for answers. ThankThanks!***
 
