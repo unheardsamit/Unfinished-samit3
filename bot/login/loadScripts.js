@@ -42,7 +42,7 @@ module.exports = async function (api, threadModel, userModel, dashBoardModel, gl
 		const makeColor = folderModules == "cmds" ?
 			createLine("LOAD COMMANDS") :
 			createLine("LOAD COMMANDS EVENT");
-		console.log(colors.hex("#f5ab00")(makeColor));
+		console.log(colors.hex("#00FF00")(makeColor));
 
 		if (folderModules == "cmds") {
 			text = "command";
