@@ -118,7 +118,8 @@ Summary instructions:
 
 ## 🆙 **How to Update**
 Tutorial has been uploaded on YouTube
-- on phone/repl: https://youtu.be/grVeZ76HlgA?t=1342
+- on phone/repl: https://youtu.be/FXjDP5VWjg4?si=yyxggqit1W5MhPDh
+- 
 - on vps/computer: https://youtu.be/uCbSYNQNEwY?t=508
 
 ## 🛠️ **How to create new commands**
@@ -127,8 +128,10 @@ Tutorial has been uploaded on YouTube
 ## 💭 **Support**
 If you have major coding issues with this bot, please join and ask for help.
 - https://www.facebook.com/www.facebook.official.404
-- https://m.me/j/AbY3RJtBo137YMdn/
-- ~~https://t.me/gatbottt~~ (no longer supported)
+-
+-  https://m.me/j/AbY3RJtBo137YMdn/
+-
+-   (no longer supported)
 - ***Please do not inbox me, I do not respond to private messages, any questions please join the chat group for answers. ThankThanks!***
 
 ## 📚 **Support Languages in source code**
