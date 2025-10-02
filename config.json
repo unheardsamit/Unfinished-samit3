@@ -7,49 +7,41 @@
     "proxy": null,
     "userAgent": "Mozilla/5.0 (Linux; Android 12; M2102J20SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Mobile Safari/537.36",
     "intervalGetNewCookie": 1440,
-    "notes": "Time the system automatically retrieves new cookies from email/password. Unit is in minutes. Set to null to avoid automatic retrieval. Recommended settings: 1440 (1 day) or 4320 (3 days)."
+    "notes": "time the system automatically retrieves new cookies from email/password, unit is minute, if you set null, the system will not automatically retrieve new cookies, it saves you from having to manually change your cookie every time it expires. recommended set to 1440 (1day) or 4320 (3day).TO BE ABLE TO USE THIS FEATURE YOU NEED TO ENTER THE ACCOUNT PASSWORD ABOVE"
   },
   "antiInbox": false,
   "language": "en",
-  "notesLanguage": "Set language with ISO 639-1 code. Available: vi (Vietnamese), en (English).",
+  "notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
   "adminOnly": {
     "enable": false,
     "ignoreCommand": []
   },
+  "developerOnly": {
+    "enable": false,
+    "ignoreCommand": []
+  },
+  "vipOnly": {
+    "enable": false,
+    "ignoreCommand": []
+  },
   "adminBot": [
-    "61572658681308"
-  ],
-  "GOD": [
-    "61572658681308",
-    "",
+    "100001611578438",
     ""
   ],
-  "vipUser": [
-    "61572658681308",
-    "",
-    ""
+  "developer": [
+    "100001611578438"
   ],
-  "DEV": [
-    "61572658681308",
-    "",
+  "vipuser": [
+    "100001611578438"
     ""
-  ],
+  ], 
   "whiteListMode": {
-    "enable": true,
-    "whiteListIds": [
-     "61572658681308",
-     "",
-    ""
-    ],
+    "enable": false,
+    "whiteListIds": [],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "^•^",
-  "prefix": "×",
-  "ownerName": "itz Aryan 🎀",
-    "aryanapi": "https://xyz-naruto-api.onrender.com/aryan",
-    "sigma": "https://xyz-naruto-api.onrender.com",
-    "alldl": "https://aryan-video-downloader.vercel.app/",
-    "dipto": "https://www.noobs-api.rf.gd/dipto",
+  "nickNameBot": "Goat-Bot-V2",
+  "prefix": "!",
   "database": {
     "type": "sqlite",
     "uriMongodb": "",
@@ -58,17 +50,17 @@
     "notes": "(1) type selects 'json' or 'sqlite' or 'mongodb'. If you choose mongodb, enter uri connect mongodb in the uriMongodb section, instructions to get uri connect mongodb at: https://youtu.be/z1f9urHW5xY. I recommend using 'mongodb' or 'sqlite', json is not recommended because it is not stable. (2) when you set autoSyncWhenStart to true, the bot will automatically synchronize the data in the database when starting the bot, this will make the bot start slower. (3) when you set autoRefreshThreadInfoFirstTime to true, the bot will automatically refresh the thread information when get first message from the thread since starting the bot"
   },
   "timeZone": "Asia/Dhaka",
-  "credentials": {
+    "credentials": {
     "gmailAccount": {
-      "email": "vexaryan@gmail.com",
-      "clientId": "695328982889-v1t85ej9aq1fvv0n4alp7rcbea9gkgvf.apps.googleusercontent.com",
-      "clientSecret": "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",
-      "refreshToken": "1//04EyH1gbNUVv5CgYIARAAGAQSNwF-L9IrqcPCQD2QsuhCQ2XprHCTMrTnVPI6WvT9i73nnoi4XqfAD0_yDoGW_gtWUdIeVtANzao",
+      "email": "itzaryan.biz@gmail.com",
+      "clientId": "25451808751-el6hf6cfqmggkl43u122g1lkrd64lbv2.apps.googleusercontent.com",
+      "clientSecret": "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",
+      "refreshToken": "1//04heqEQ0YPoefCgYIARAAGAQSNwF-L9Ir7h0tWkEZoFSU5jzT_DczmxdsdRYoCnQuikDFgmluK8KHEOSsqJrt5ypUWd_GwBvy2xc",
       "apiKey": ""
     },
     "gRecaptcha": {
-      "siteKey": "6Lff7Y0mAAAAALiv3IBkCCOfCdEsN-lK-jtR5FCm",
-      "secretKey": "6Lff7Y0mAAAAAGQr8dO3lqDJVhTi8Q-tpLLy2kGo"
+      "siteKey": "6Le_o9srAAAAAEcmpEqz8OV7S8EG5SsfsbMlJvZp",
+      "secretKey": "6Le_o9srAAAAAKMMdFUM3-c3Aq7OHE6-jSAzkU4z"
     }
   },
   "dashBoard": {
