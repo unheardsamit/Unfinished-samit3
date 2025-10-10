@@ -3,9 +3,9 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[ 🐐 | Goat Bot V2 ]";
+const doNotDelete = "[ 🐐 | SAMIT's BOT ]";
 /**
-* @author NTKhang
+* @author SAMIT
 * @author: do not delete it
 * @message if you delete or edit it you will get a global ban
 */
@@ -14,7 +14,7 @@ module.exports = {
 	config: {
 		name: "help",
 		version: "1.21",
-		author: "NTKhang",
+		author: "SAMIT",
 		countDown: 5,
 		role: 0,
 		description: {
