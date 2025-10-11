@@ -4,7 +4,7 @@
   "language": "en",
   "api": "http://65.109.80.126:20409/aryan",
   "baby": "https://nix-baby-apis.vercel.app",
-  "nickNameBot": "UNFINISHED SAMIT",
+  "nickNameBot": "ALIA EXE (SAMIT'S CHATBOT)",
   "database": {
     "type": "sqlite",
     "uriMongodb": "",
