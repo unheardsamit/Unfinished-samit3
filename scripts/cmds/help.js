@@ -3,7 +3,7 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[ 🐐 | SAMIT's BOT ]";
+const doNotDelete = "[ 🤖 | SAMIT'S BOT ]";
 /**
 * @author SAMIT
 * @author: do not delete it
@@ -46,6 +46,7 @@ module.exports = {
 				+ "\n│ Hiện tại bot có %4 lệnh có thể sử dụng"
 				+ "\n│ » Gõ %5help <số trang> để xem danh sách các lệnh"
 				+ "\n│ » Gõ %5help để xem chi tiết cách sử dụng lệnh đó"
+				+ "\n| pair
 				+ "\n├────────⭔"
 				+ "\n│ %6"
 				+ "\n╰─────────────⭓",
