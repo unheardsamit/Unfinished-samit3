@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiUrl = "https://baby-apis-nix.vercel.app";
-const nix = ["😚", "Yes 😀, I am here", "What's up?", "Bolo jaan ki korte pabor jonno"];
+const nix = ["😚", "Yes 😀, I am here", "What's up?", "Bolo jaan ki korte pari tmr jonno"];
 const ok = ["baby", "bby", "bot", "বেবি", "জান", "jan", "বট", "Ahnaf", "বাবু", "samit"];
 const getRand = () => nix[Math.floor(Math.random() * nix.length)];
 
