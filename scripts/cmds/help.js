@@ -3,9 +3,9 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[ 🤖 | SAMIT'S BOT ]";
+const doNotDelete = "[ 🤖 | SAMITS'S BOT ]";
 /**
-* @author SAMIT
+* @author NTKhang
 * @author: do not delete it
 * @message if you delete or edit it you will get a global ban
 */
@@ -14,7 +14,7 @@ module.exports = {
 	config: {
 		name: "help",
 		version: "1.21",
-		author: "SAMIT",
+		author: "NTKhang",
 		countDown: 5,
 		role: 0,
 		description: {
@@ -33,7 +33,7 @@ module.exports = {
 				+ "\n   {pn} <command name> [-i | info]: only show command info"
 				+ "\n   {pn} <command name> [-r | role]: only show command role"
 				+ "\n   {pn} <command name> [-a | alias]: only show command alias"
-		},		+ "\n 	{pn} <command name> [-s | sing]type song name"
+		},
 		priority: 1
 	},
 
@@ -46,7 +46,6 @@ module.exports = {
 				+ "\n│ Hiện tại bot có %4 lệnh có thể sử dụng"
 				+ "\n│ » Gõ %5help <số trang> để xem danh sách các lệnh"
 				+ "\n│ » Gõ %5help để xem chi tiết cách sử dụng lệnh đó"
-				+ "\n| pair
 				+ "\n├────────⭔"
 				+ "\n│ %6"
 				+ "\n╰─────────────⭓",
@@ -132,7 +131,6 @@ module.exports = {
 				+ "\n├── NOTES"
 				+ "\n│ The content inside <XXXXX> can be changed"
 				+ "\n│ The content inside [a|b|c] is a or b or c"
-				+ "\n| groupinfo
 				+ "\n╰──────⭔",
 			onlyInfo: "╭── INFO ────⭓"
 				+ "\n│ Command name: %1"
@@ -408,4 +406,4 @@ function cropContent(content, max) {
 		content = content + "...";
 	}
 	return content;
-}
+			}
