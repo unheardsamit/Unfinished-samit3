@@ -33,7 +33,7 @@ module.exports = {
 				+ "\n   {pn} <command name> [-i | info]: only show command info"
 				+ "\n   {pn} <command name> [-r | role]: only show command role"
 				+ "\n   {pn} <command name> [-a | alias]: only show command alias"
-		},
+		},		+ "\n 	{pn} <command name> [-s | sing]type song name"
 		priority: 1
 	},
 
@@ -131,6 +131,7 @@ module.exports = {
 				+ "\n├── NOTES"
 				+ "\n│ The content inside <XXXXX> can be changed"
 				+ "\n│ The content inside [a|b|c] is a or b or c"
+				+ "\n| groupinfo
 				+ "\n╰──────⭔",
 			onlyInfo: "╭── INFO ────⭓"
 				+ "\n│ Command name: %1"
