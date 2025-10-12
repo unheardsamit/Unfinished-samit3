@@ -5,8 +5,8 @@ const ok = ["baby", "bby", "bot", "বেবি", "জান", "jan", "বট", 
 const getRand = () => nix[Math.floor(Math.random() * nix.length)];
 
 module.exports.config = {
-  name: "bby",
-  aliases: ["baby"],
+  name: "bby","Alia"
+  aliases: ["baby"],["Alia"]
   version: "0.0.1",
   author: "ArYAN",
   cooldowns: 0,
