@@ -23,7 +23,7 @@ function decrypt(text) {
 
 
 const config = Object.freeze({
-  name: "bot"," Alia"
+  name: "bot",
   version: "1.0",
   author: encrypt("BaYjid"), 
   countDown: 5,
