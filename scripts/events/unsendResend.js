@@ -1,86 +1,115 @@
-//=========================//
-//  Author: Samit (GoatBot)
-//  Feature: Detect unsent messages and resend them
-//=========================//
+//====================================================//
+// Author: Samit (GoatBot v2)
+// File: unsendResend.js
+// Feature: Detect & resend unsent messages (photo, video, audio, gif, file)
+//====================================================//
 
 const fs = require("fs");
-const axios = require("axios");
 const path = require("path");
+const axios = require("axios");
 
 module.exports.config = {
   name: "unsendResend",
-  eventType: ["message_unsend"],
-  version: "1.2.0",
+  eventType: ["message", "message_unsend"],
+  version: "2.3.0",
   author: "Samit (GoatBot)",
   role: 0,
-  description: "Detects and re-sends unsent messages, including media",
-  category: "event",
+  description: "Detect and resend any unsent message (text, photo, video, audio, gif, etc.)",
+  category: "event"
 };
 
-const cache = new Map(); // Store messages temporarily
+// 🧠 Local cache to store recent messages
+const cache = new Map();
 
-// Message listener — store messages
-module.exports.onChat = async function ({ event }) {
-  if (event.body || (event.attachments && event.attachments.length > 0)) {
-    cache.set(event.messageID, {
-      body: event.body,
-      attachments: event.attachments || [],
-      senderID: event.senderID,
-    });
-  }
-};
-
-// When someone unsends
 module.exports.onEvent = async function ({ api, event, usersData }) {
-  if (event.logMessageType === "message_unsend") {
-    const unsent = cache.get(event.messageID);
-    if (!unsent) return;
-
-    const senderName = await usersData.getName(unsent.senderID).catch(() => "Unknown User");
-    let msg = `🚫 ${senderName} just unsent a message!\n`;
-
-    // If text message
-    if (unsent.body) msg += `💬 Message: ${unsent.body}`;
-
-    // If attachments exist
-    if (unsent.attachments.length > 0) {
-      const attachments = [];
-
-      for (const att of unsent.attachments) {
-        try {
-          const fileExt =
-            att.type === "photo"
-              ? ".jpg"
-              : att.type === "video"
-              ? ".mp4"
-              : att.type === "audio"
-              ? ".mp3"
-              : att.type === "animated_image"
-              ? ".gif"
-              : ".bin";
-
-          const filePath = path.join(__dirname, `temp_${Date.now()}${fileExt}`);
-          const response = await axios.get(att.url, { responseType: "arraybuffer" });
-          fs.writeFileSync(filePath, Buffer.from(response.data, "binary"));
-          attachments.push(fs.createReadStream(filePath));
-        } catch (err) {
-          console.log("⚠️ Attachment download failed:", err.message);
-        }
-      }
-
-      msg += `\n📎 Re-sending ${unsent.attachments.length} attachment(s)...`;
-      api.sendMessage({ body: msg, attachment: attachments }, event.threadID, () => {
-        // Clean up temp files
-        attachments.forEach((stream) => {
-          try {
-            fs.unlinkSync(stream.path);
-          } catch {}
-        });
+  try {
+    // Step 1️⃣: Save sent message into cache
+    if (event.type === "message") {
+      if (!event.messageID) return;
+      cache.set(event.messageID, {
+        senderID: event.senderID,
+        body: event.body || "",
+        attachments: event.attachments || []
       });
-    } else {
-      api.sendMessage(msg, event.threadID);
+
+      // Limit cache size (avoid memory leaks)
+      if (cache.size > 600) cache.clear();
     }
 
-    cache.delete(event.messageID);
+    // Step 2️⃣: Detect unsent message
+    if (event.logMessageType === "message_unsend") {
+      const msgData = cache.get(event.messageID);
+      if (!msgData) return;
+
+      const senderName = await usersData.getName(msgData.senderID).catch(() => msgData.senderID);
+      let msgText = `🚫 ${senderName} just unsent a message!`;
+
+      if (msgData.body) msgText += `\n💬 Message: ${msgData.body}`;
+
+      // Step 3️⃣: Handle attachments
+      if (msgData.attachments.length > 0) {
+        const files = [];
+
+        for (const att of msgData.attachments) {
+          try {
+            let ext;
+            switch (att.type) {
+              case "photo":
+                ext = ".jpg";
+                break;
+              case "video":
+                ext = ".mp4";
+                break;
+              case "audio":
+                ext = ".mp3";
+                break;
+              case "animated_image":
+                ext = ".gif";
+                break;
+              case "file":
+                ext = ".bin";
+                break;
+              default:
+                ext = ".dat";
+            }
+
+            const tempPath = path.join(__dirname, `unsend_${Date.now()}${ext}`);
+
+            // Download the attachment with axios
+            const res = await axios.get(att.url, {
+              responseType: "arraybuffer",
+              timeout: 15000
+            });
+
+            fs.writeFileSync(tempPath, Buffer.from(res.data));
+            files.push(fs.createReadStream(tempPath));
+          } catch (err) {
+            console.error("⚠️ Error downloading attachment:", err.message);
+          }
+        }
+
+        // Step 4️⃣: Resend message with attachments
+        api.sendMessage(
+          { body: msgText, attachment: files },
+          event.threadID,
+          (err) => {
+            // Delete temp files after send
+            for (const f of files) {
+              try {
+                fs.unlinkSync(f.path);
+              } catch {}
+            }
+          }
+        );
+      } else {
+        // Only text message
+        api.sendMessage(msgText, event.threadID);
+      }
+
+      // Remove old data
+      cache.delete(event.messageID);
+    }
+  } catch (err) {
+    console.error("🔥 unsendResend error:", err.message);
   }
 };
