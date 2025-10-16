@@ -4,7 +4,7 @@ const u = "http://65.109.80.126:20409/aryan/gemini";
 
 module.exports = {
   config: {
-    name: "gemini",
+    name: "Alia",
     aliases: [],
     version: "0.0.1",
     author: "ArYAN",
